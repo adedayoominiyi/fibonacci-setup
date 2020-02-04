@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.adedayoominiyi.fibonacci;
+
+option java_package = "com.adedayoominiyi.fibonacci";
+
+message FibRequest {
+    uint32 maxNumber = 1;
+}
+
+message FibResponse {
+    uint64 nextNumber = 1;
+}
+
+service FibService {
+    rpc FibSeq(FibRequest) returns (stream FibResponse);
+}
