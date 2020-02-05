@@ -1,0 +1,27 @@
+docker-machine create --driver virtualbox default
+
+Micronaut 1.2.10 (https://micronaut.io/download.html)
+
+mn create-app proxy-service --build maven
+cd proxy-service
+./mvnw compile exec:exec
+
+java -jar target/proxy-service-0.1.jar
+java -jar target/fibonacci-server-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+
+> docker network create -d bridge fibonacci-setup_single_network
+
+> cd fibonacci-server
+fibonacci-server> mvn clean -DskipTests package
+# COPY commands can only work copy from the current context
+fibonacci-server> docker build -f .\single_stage\Dockerfile . -t fibonacci-server-single:latest
+fibonacci-server> docker run --rm -p9091:9091 --net-alias=fibonnaci-server --network=fibonacci-setup_single_network -itd --name=fibonacci-server-single fibonacci-server-single:latest
+
+# Running Test
+fibonacci-server> docker run --rm -p9091:9091 -itd --name=fibonacci-server-single fibonacci-server-single:latest
+
+> cd proxy-service
+proxy-service> mvn clean -DskipTests package
+proxy-service> docker build -f .\single_stage\Dockerfile . -t proxy-service-single:latest
+proxy-service> docker run -p9090:9090 --rm --network=fibonacci-setup_single_network -itd --name=proxy-service-single proxy-service-single:latest

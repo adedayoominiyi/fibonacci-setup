@@ -1,4 +1,4 @@
-package com.adedayo.server;
+package com.adedayoominiyi.server;
 
 import com.adedayoominiyi.fibonacci.FibServiceGrpc;
 import com.adedayoominiyi.fibonacci.Fibonacci;

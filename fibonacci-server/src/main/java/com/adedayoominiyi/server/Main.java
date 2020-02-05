@@ -1,4 +1,4 @@
-package com.adedayo.server;
+package com.adedayoominiyi.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;

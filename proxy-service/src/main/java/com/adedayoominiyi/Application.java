@@ -1,4 +1,4 @@
-package proxy.service;
+package com.adedayoominiyi;
 
 import io.micronaut.runtime.Micronaut;
 

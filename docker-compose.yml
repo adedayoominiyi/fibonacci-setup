@@ -2,12 +2,16 @@ version: '3'
 
 services:
   proxy-service:
-    build: ./proxy-service/multi_stage
+    build: 
+      context: ./proxy-service/
+      dockerfile: ./multi_stage/Dockerfile
     ports:
       - 9090:9090
     depends_on:
       - fibonnaci-server
   fibonnaci-server:
-    build: ./fibonacci-server/multi_stage
+    build:
+      context: ./fibonacci-server/
+      dockerfile: ./multi_stage/Dockerfile
     ports:
       - 9091:9091

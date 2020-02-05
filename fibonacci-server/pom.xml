@@ -10,6 +10,7 @@
         <jdk.version>1.8</jdk.version>
         <maven.compiler.target>${jdk.version}</maven.compiler.target>
         <maven.compiler.source>${jdk.version}</maven.compiler.source>
+		<exec.mainClass>com.adedayoominiyi.server.Main</exec.mainClass>
     </properties>
 
     <groupId>org.example</groupId>
@@ -72,7 +73,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.adedayo.server.Main</mainClass>
+                            <mainClass>${exec.mainClass}</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

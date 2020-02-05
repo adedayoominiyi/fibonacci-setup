@@ -5,5 +5,5 @@ micronaut:
     port: 9090
 fibonacci:
   server:
-    host: localhost
+    host: fibonnaci-server
     port: 9091
