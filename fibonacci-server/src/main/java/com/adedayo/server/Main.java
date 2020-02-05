@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class Main {
 
-    private static final int PORT = 9090;
+    private static final int PORT = 9091;
     private static final Logger logger = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) throws IOException, InterruptedException {
