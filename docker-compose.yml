@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  proxy-service:
+    build: ./proxy-service/multi_stage
+    ports:
+      - 9090:9090
+    depends_on:
+      - fibonnaci-server
+  fibonnaci-server:
+    build: ./fibonacci-server/multi_stage
+    ports:
+      - 9091:9091
